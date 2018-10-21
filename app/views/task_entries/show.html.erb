@@ -1,0 +1,23 @@
+<h1> Task Entry &nbsp <%=@te.id%> </h1>
+<table>
+  <tr>
+    <th>id</th>
+    <th>Task</th>
+    <th>Duration</th>
+    <th>Note</th>
+    <th>Start Time</th>
+    <th>Created At</th>
+    <th>Updated At</th>
+  </tr>
+  <tr>
+    <td><%=@te.id%><td>
+    <td><%=link_to @te.task.task_name,{:controller => :tasks, :action=>'show',:id=>@te.task.id},:class=>"btn-link"%></td>
+    <td><%=@te.duration%></td>
+    <td><%=@te.note%></td>
+    <td><%=@te.start_time%></td>
+    <td><%=@te.created_at%></td>
+    <td><%=@te.updated_at%></td>
+    <td><%=link_to 'edit', {:controller => :task_entries, :action => 'edit', :id => @te.id},:class=>"btn-edit"%></td>
+    <td><%=button_to 'Delete', {:controller => :task_entries, :action => 'destroy', :id => @te.id}, {:method => :delete, :form => {:class => "btn-delete"}}%></td>
+  </tr>
+</table>

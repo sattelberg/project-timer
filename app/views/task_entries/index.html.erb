@@ -1,0 +1,26 @@
+<h1>Task Entries</h1>
+<table>
+  <tr>
+    <th>id</th>
+    <th>Task</th>
+    <th>Duration</th>
+    <th>Note</th>
+    <th>Start Time</th>
+    <th>Created At</th>
+    <th>Updated At</th>
+  </tr>
+  <% @te.each do |user| %>
+    <tr>
+      <td><%=te.id%><td>
+      <td><%=link_to user.id, {:controller => :task_entries, :action => 'show', :id => user.id},:class=>"btn-link"%></td>
+      <td><%=link_to user.task.task_name,{:controller => :tasks, :action=>'show',:id=>user.task.id},:class=>"btn-link"%></td>
+      <td><%=user.duration%></td>
+      <td><%=user.note%></td>
+      <td><%=user.start_time%></td>
+      <td><%=user.created_at%></td>
+      <td><%=user.updated_at%></td>
+      <td><%=link_to 'edit', {:controller => :projects, :action => 'edit', :id => user.id},:class=>"btn-edit"%></td>
+      <td><%=button_to 'Delete', {:controller => :projects, :action => 'destroy', :id => user.id}, {:method => :delete, :form => {:class => "btn-delete"}}%></td>
+    </tr>
+  <% end %>
+</table>

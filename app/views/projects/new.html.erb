@@ -1,0 +1,7 @@
+<%=form_for @proj do |f|%>
+  <%= f.label "Project Name"%><br/>
+  <%= f.text_field :project_name%><br/>
+  <%= f.label "Customer"%><br/>
+  <%= f.collection_select :customer_id, Customer.all, :id, :company%><br/>
+  <%= f.submit "Create"%>
+<%end%>

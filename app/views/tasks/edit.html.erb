@@ -1,0 +1,8 @@
+<%=form_for @task do |f|%>
+  <%= f.label "Task Name"%><br/>
+  <%= f.text_field :task_name%><br/>
+  <%= f.label "Project"%><br/>
+  <%= f.collection_select :project_id, Project.all, :id, :project_name%><br/>
+  <%= f.collection_select :user_id, User.all, :id, :username%><br/>
+  <%= f.submit "Update"%>
+<%end%>

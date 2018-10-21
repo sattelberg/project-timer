@@ -1,0 +1,13 @@
+<%=form_for @cust do |f|%>
+  <%= f.label "Company"%><br/>
+  <%= f.text_field :company%><br/>
+  <%= f.label "Address"%><br/>
+  <%= f.text_field :address%><br/>
+  <%= f.label "City"%><br/>
+  <%= f.text_field :city%><br/>
+  <%= f.label "State"%><br/>
+  <%= f.text_field :state%><br/>
+  <%= f.label "Zip"%><br/>
+  <%= f.text_field :zip%><br/>
+  <%= f.submit "Create"%>
+<%end%>

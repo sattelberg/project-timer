@@ -1,0 +1,27 @@
+<h1>Customers</h1>
+<table>
+  <tr>
+   <th>id</th>
+   <th>Company</th>
+   <th>Address</th>
+   <th>City</th>
+   <th>State</th>
+   <th>Zip</th>
+   <th>Created At</th>
+   <th>Updated At</th>
+  </tr>
+  <% @cust.each do |user| %>
+    <tr>
+      <td><%=user.id%></td>
+      <td><%=link_to user.company, {:controller => :customers, :action => 'show', :id => user.id},:class=>"btn-link"%></td>
+      <td><%=user.address%></td>
+      <td><%=user.city%></td>
+      <td><%=user.state%></td>
+      <td><%=user.zip%></td>
+      <td><%=user.created_at%></td>
+      <td><%=user.updated_at%></td>
+      <td><%=link_to 'edit', {:controller => :customers, :action => 'edit', :id => user.id},:class=>"btn-edit"%></td>
+      <td><%=button_to 'Delete', {:controller => :customers, :action => 'destroy', :id => user.id}, {:method => :delete, :form => {:class => "btn-delete"}}%></td>
+    </tr>
+  <% end %>
+</table>

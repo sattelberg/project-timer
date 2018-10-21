@@ -1,0 +1,19 @@
+<h1> <%=@proj.project_name%> </h1>
+<table>
+  <tr>
+    <th>id</th>
+    <th>Project Name</th>
+    <th>Customer</th>
+    <th>Created At</th>
+    <th>Updated At</th>
+  </tr>
+  <tr>
+    <td><%=@proj.id%></td>
+    <td><%=@proj.project_name%></td>
+    <td><%=link_to @proj.customer.company,{:controller => :customers, :action=>'show',:id=>@proj.customer.id},:class=>"btn-link"%></td>
+    <td><%=@proj.created_at%></td>
+    <td><%=@proj.updated_at%></td>
+    <td><%=link_to 'edit', {:controller => :projects, :action => 'edit', :id => @proj.id},:class=>"btn-edit"%></td>
+    <td><%=button_to 'Delete', {:controller => :projects, :action => 'destroy', :id => @proj.id}, {:method => :delete, :form => {:class => "btn-delete"}}%></td>
+  </tr>
+</table>

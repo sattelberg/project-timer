@@ -13,22 +13,59 @@ class UsersController < ApplicationController
   end
   def update
     user = User.find(params[:id])
-    if (params[:user[:confirm]] != params[:user[:new_word]])
-      redirect_to edit_user_url(user), notice:"Passwords did not match", status: 500
+    uparam = params[:user]
+    if (uparam[:confirm] != uparam[:new_word])
+      flash[:error] = "Passwords did not match"
+      redirect_to edit_user_url(user), status: 301
+    else
+      user.email = uparam[:email]
+      user.username = uparam[:username]
+      if uparam[:password] != ''
+        user.password = uparam[:password]
+      end
+      user.updated_at = DateTime.current.in_time_zone('UTC')
+      if user.save
+        flash[:notice] = "Succesfully Updated"
+        redirect_to user, status: 301
+      else
+        flash[:error] = "Error: Not Updated"
+        redirect_to edit_user_path(params[:id]), status: 301
+      end
     end
-    user.email = params[:user[:email]]
-    user.username = params[:user[:username]]
-    if params[:user[:password]] != ''
-      user.password = params[:user[:password]]
+  end
+  def new
+    @user = User.new
+    render :new
+  end
+  def create
+    user = User.new
+    uparam = params[:user]
+    if (uparam[:confirm] != uparam[:new_word])
+      redirect_to new_user_url, notice:"Passwords did not match", status: 500
+    else
+      user.email = uparam[:email]
+      user.username = uparam[:username]
+      if uparam[:password] != ''
+        user.password = uparam[:password]
+      end
+      user.updated_at = DateTime.current.in_time_zone('UTC')
+      user.created_at = user.updated_at
+      if user.save
+        flash[:notice] = "Sucessfully Created"
+        redirect_to user, status: 301
+      else
+        flash[:error] = "Error During Creation"
+        redirect_to create_user_url, status: 301
+      end
     end
-    user.save
-    redirect_to user
   end
   def destroy
     if(User.find(params[:id]).destroy)
-      redirect_to users_path, notice: 'Successful Delete',status: 301
+      flash[:notice] = "Successful Delete"
+      redirect_to users_path, status: 301
     else
-      redirect_to users_path, notice: 'Delete Failed',status: 301
+      flash[:error] = "Error: Failed to Delete"
+      redirect_to users_path, status: 301
     end
   end
 end

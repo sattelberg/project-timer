@@ -1,0 +1,11 @@
+<%=form_for @te do |f|%>
+  <%= f.label "Task"%><br/>
+  <%= f.collection_select :task_id, Task.all, :id, :task_name%><br/>
+  <%= f.label "Duration"%></br>
+  <%= f.time_select :duration, {}, class: 'time'%><br/>
+  <%= f.label "Note"%><br/>
+  <%= f.text_field :note%><br/>
+  <%= f.label "Start Time"%><br/>
+  <%= f.datetime_select :start_time, {}, class: 'date-time'%></br>
+  <%= f.submit "Create"%>
+<%end%>
