@@ -1,4 +1,5 @@
 class CustomersController < ApplicationController
+  before_action :check_login
   def show
     @cust = Customer.find(params[:id])
     render :show

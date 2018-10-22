@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  before_action :check_login
   def show
     @task = Task.find(params[:id])
     render :show

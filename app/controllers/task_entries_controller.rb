@@ -1,4 +1,5 @@
 class TaskEntriesController < ApplicationController
+  before_action :check_login
   def show
     @te = TaskEntry.find(params[:id])
     render :show
@@ -16,7 +17,7 @@ class TaskEntriesController < ApplicationController
     tparam = params[:task_entry]
     te.task = Task.find(tparam[:task_id])
     te.note = tparam[:note]
-    te.duration=(tparam["duration(4i)"] +':'+ tparam["duration(5i)"])
+    te.duration=tparam[:duration]
     te.updated_at = DateTime.current.in_time_zone('UTC')
     if te.save
       flash[:notice] = "Sucessfully Updated"

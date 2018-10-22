@@ -1,6 +1,32 @@
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    <li class="name">
+      <h1><a href=<%=url_for(action:'new',controller:'sessions')%>>Log In</a></h1>
+    </li>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Left Nav Section -->
+    <ul class="left">
+      <li class="active"><a href=<%=users_url%>>Users</a></li>
+      <li class="active"><a href=<%=customers_url%>>Customers</a></li>
+      <li class="active"><a href=<%=projects_url%>>Projects</a></li>
+      <li class="active"><a href=<%=tasks_url%>>Tasks</a></li>
+      <li class="active"><a href=<%=task_entries_url%>>Tasks Entries</a></li>
+    </ul>
+  </section>
+</nav>
 <%if flash[:notice]%>
-  <p class="notice"><%= flash[:notice] %></p>
+  <div data-alert class="alert-box">
+  <%=flash[:notice]%>
+  <a href="#" class="close">&times;</a>
+  </div>
 <%end%>
 <% if flash[:error]%>
-  <p class="error"><%= flash[:error] %></p>
+  <div data-alert class="alert-box warning">
+  <%=flash[:error]%>
+  <a href="#" class="close">&times;</a>
+  </div>
 <%end%>

@@ -1,5 +1,7 @@
-<h1>Task Entries</h1>
-<table>
+<div class="small-2 small-centered columns">  
+  <h1>Task Entries</h1>
+</div>
+<table class="small-12 small-centered colums">
   <tr>
     <th>id</th>
     <th>Task</th>
@@ -11,7 +13,7 @@
   </tr>
   <% @te.each do |user| %>
     <tr>
-      <td><%=te.id%><td>
+      <td><%=user.id%></td>
       <td><%=link_to user.id, {:controller => :task_entries, :action => 'show', :id => user.id},:class=>"btn-link"%></td>
       <td><%=link_to user.task.task_name,{:controller => :tasks, :action=>'show',:id=>user.task.id},:class=>"btn-link"%></td>
       <td><%=user.duration%></td>
@@ -19,8 +21,8 @@
       <td><%=user.start_time%></td>
       <td><%=user.created_at%></td>
       <td><%=user.updated_at%></td>
-      <td><%=link_to 'edit', {:controller => :projects, :action => 'edit', :id => user.id},:class=>"btn-edit"%></td>
-      <td><%=button_to 'Delete', {:controller => :projects, :action => 'destroy', :id => user.id}, {:method => :delete, :form => {:class => "btn-delete"}}%></td>
+      <td><%=link_to 'edit', {:controller => :task_entries, :action => 'edit', :id => user.id},:class=>"button"%></td>
+      <td><%=button_to 'Delete', {:controller => :task_entries, :action => 'destroy', :id => user.id}, {:method => :delete,  :class=>"button"}%></td>
     </tr>
   <% end %>
 </table>

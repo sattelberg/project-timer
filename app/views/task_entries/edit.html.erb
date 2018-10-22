@@ -1,9 +1,26 @@
+<%=javascript_include_tag "time_format"%>
+<%title="Edit Task Entry " +@te.note%>
+<% provide(:title,title) %>
 <%=form_for @te do |f|%>
-  <%= f.label "Task"%><br/>
-  <%= f.collection_select :task_id, Task.all, :id, :task_name%><br/>
-  <%= f.label "Duration"%>
-  <%= f.time_select :duration%><br/>
-  <%= f.label "Note"%><br/>
-  <%= f.text_field :note%><br/>
-  <%= f.submit "Update"%>
+  <div class="row">
+    <div class ="small-5 small-centered columns">
+      <%= f.label "Task",class: "label"%><br/>
+      <%= f.collection_select :task_id, Task.all, :id, :task_name%><br/>
+    </div>
+  </div>
+  <div class="row">
+    <div class ="small-5 small-centered columns">
+      <%= f.label "Duration (DD:HH:MM)",class: "label"%><br/>
+      <%= f.text_field :duration,{class: "time"}%><br/>
+    </div>
+  </div>
+  <div class="row">
+    <div class ="small-5 small-centered columns">
+      <%= f.label "Note", class: "label"%><br/>
+      <%= f.text_field :note%><br/>
+    </div>
+  </div>
+  <div class ="small-1 small-centered columns">
+    <%= f.submit "Update", class: "button"%>
+  </div>
 <%end%>

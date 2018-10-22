@@ -1,7 +1,8 @@
+<%=javascript_include_tag "time_format"%>
 <%=form_for @te do |f|%>
   <%= f.label "Task"%><br/>
   <%= f.collection_select :task_id, Task.all, :id, :task_name%><br/>
-  <%= f.label "Duration"%></br>
+  <%= f.label "Duration DD:HH:MM"%></br>
   <%= f.time_select :duration, {}, class: 'time'%><br/>
   <%= f.label "Note"%><br/>
   <%= f.text_field :note%><br/>

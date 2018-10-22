@@ -1,5 +1,7 @@
-<h1>Projects</h1>
-<table>
+<div class="small-1 small-centered columns">
+  <h1>Projects</h1>
+</div>
+<table class="small-12 small-centered colums">
   <tr>
     <th>id</th>
     <th>Project Name</th>
@@ -9,13 +11,13 @@
   </tr>
   <% @proj.each do |user| %>
     <tr>
-      <td><%=user.id%><td>
+      <td><%=user.id%></td>
       <td><%=link_to user.project_name, {:controller => :projects, :action => 'show', :id => user.id},:class=>"btn-link"%></td>
       <td><%=link_to user.customer.company,{:controller => :customers, :action=>'show',:id=>user.customer.id},:class=>"btn-link"%></td>
       <td><%=user.created_at%></td>
       <td><%=user.updated_at%></td>
-      <td><%=link_to 'edit', {:controller => :projects, :action => 'edit', :id => user.id},:class=>"btn-edit"%></td>
-      <td><%=button_to 'Delete', {:controller => :projects, :action => 'destroy', :id => user.id}, {:method => :delete, :form => {:class => "btn-delete"}}%></td>
+      <td><%=link_to 'edit', {:controller => :projects, :action => 'edit', :id => user.id},:class=>"button"%></td>
+      <td><%=button_to 'Delete', {:controller => :projects, :action => 'destroy', :id => user.id}, {:method => :delete, :class => "button"}%></td>
     </tr>
   <% end %>
 </table>

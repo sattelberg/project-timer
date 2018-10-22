@@ -1,13 +1,35 @@
 <%=form_for @cust do |f|%>
-  <%= f.label "Company"%><br/>
-  <%= f.text_field :company%><br/>
-  <%= f.label "Address"%><br/>
-  <%= f.text_field :address%><br/>
-  <%= f.label "City"%><br/>
-  <%= f.text_field :city%><br/>
-  <%= f.label "State"%><br/>
-  <%= f.text_field :state%><br/>
-  <%= f.label "Zip"%><br/>
-  <%= f.text_field :zip%><br/>
-  <%= f.submit "Update"%>
+  <div class="row">
+    <div class ="small-5 small-centered columns">
+      <%= f.label "Company", class: "label"%><br/>
+      <%= f.text_field :company%>
+    </div>
+  </div>
+  <div class="row">
+    <div class ="small-5 small-centered columns">
+      <%= f.label "Address", class: "label"%><br/>
+      <%= f.text_field :address%>
+    </div>
+  </div>
+  <div class="row">
+    <div class ="small-5 small-centered columns">
+      <%= f.label "City", class: "label"%><br/>
+      <%= f.text_field :city%>
+    </div>
+  </div>
+  <div class="row">
+    <div class ="small-5 small-centered columns">
+      <%= f.label "State", class: "label"%><br/>
+      <%= f.text_field :state%>
+    </div>
+  </div>
+  <div class="row">
+    <div class ="small-5 small-centered columns">
+      <%= f.label "Zip", class: "label"%><br/>
+      <%= f.text_field :zip%>
+    </div>
+  </div>
+  <div class = "small-1 small-centered columns">
+    <%= f.submit "Update",class: "button"%>
+  </div>
 <%end%>

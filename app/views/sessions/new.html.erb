@@ -1,0 +1,21 @@
+<% provide(:title, "Login") %>
+<%=form_for :session, url: login_path, class:'login' do |f| %>
+  <div class="row">
+    <div class ="small-5 small-centered columns">
+      <%=f.label :username,class: 'label'%><br/>
+      <%=f.text_field :username%><br/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-5 small-centered columns">
+      <%=f.label :password, class:'label'%><br/>
+      <%=f.password_field :password%><br/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-5  small-centered columns">
+        <%=f.submit 'login', class: 'button'%>
+        <%= link_to 'register',register_path,class: 'button' %>
+    </div>
+  </div>
+<%end%>

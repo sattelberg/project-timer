@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_action :check_login
   def show
     @proj = Project.find(params[:id])
     render :show

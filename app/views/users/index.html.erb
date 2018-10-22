@@ -1,5 +1,7 @@
-<h1>Users</h1>
-<table>
+<div class="small-1 small-centered columns">
+  <h1>Users</h1>
+</div>
+<table class="small-12 small-centered colums">
   <tr>
    <th>id</th>
    <th>UserName</th>
@@ -14,8 +16,8 @@
       <td><%=user.email%></td>
       <td><%=user.created_at%></td>
       <td><%=user.updated_at%></td>
-      <td><%=link_to 'edit', {:controller => :users, :action => 'edit', :id => user.id},:class=>"btn-edit"%></td>
-      <td><%=button_to 'Delete', {:controller => :users, :action => 'destroy', :id => user.id}, {:method => :delete, :form => {:class => "btn-delete"}}%></td>
+      <td><%=link_to 'edit', {:controller => :users, :action => 'edit', :id => user.id},:class=>"button"%></td>
+      <td><%=button_to 'Delete', {:controller => :users, :action => 'destroy', :id => user.id}, {:method => :delete, :class => "button"}%></td>
     </tr>
   <% end %>
 </table>

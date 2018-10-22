@@ -1,7 +1,21 @@
+<%title = "Edit " + @proj.project_name%>
+<% provide(:title,title) %>
 <%=form_for @proj do |f|%>
-  <%= f.label "Project Name"%><br/>
-  <%= f.text_field :project_name%><br/>
-  <%= f.label "Customer"%><br/>
-  <%= f.collection_select :customer_id, Customer.all, :id, :company%><br/>
-  <%= f.submit "Update"%>
+  <div class="row">
+      <div class="small-5 small-centered columns">
+        <%= f.label "Project Name",class:"label"%><br/>
+        <%= f.text_field :project_name%><br/>
+    </div>
+  </div>
+  <div class="row">
+      <div class="small-5 small-centered columns">
+        <%= f.label "Customer",class:"label"%><br/>
+        <%= f.collection_select :customer_id, Customer.all, :id, :company%><br/>
+      </div>
+  </div>
+  <div class="row">
+    <div class="small-2 small-centered columns">
+      <%= f.submit "Update", class: "button"%>
+    </div>
+  </div>
 <%end%>

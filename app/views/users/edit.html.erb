@@ -1,11 +1,33 @@
+<%title = "Edit " + @user.username%>
+<% provide(:title,title) %>
 <%=form_for @user do |f|%>
-  <%= f.label "Username"%><br/>
-  <%= f.text_field :username%><br/>
-  <%= f.label "Email"%><br/>
-  <%= f.text_field :email%><br/>
-  <%= f.label "Password" %><br/>
-  <%= f.password_field 'new_word'%><br/>
-  <%= f.label "Confirm Password"%><br/>
-  <%= f.password_field 'confirm'%><br/>
-  <%= f.submit "Update"%>
+  <div class="row">
+    <div class ="small-5 small-centered columns">
+      <%= f.label "Username",class:"label"%><br/>
+      <%= f.text_field :username%><br/>
+    </div>
+  </div>
+  <div class="row">
+    <div class ="small-5 small-centered columns">
+      <%= f.label "Email",class: "label"%><br/>
+      <%= f.text_field :email%><br/>
+    </div>
+  </div>
+  <div class="row">
+    <div class ="small-5 small-centered columns">
+      <%= f.label "Password", class: "label" %><br/>
+      <%= f.password_field :password%><br/>
+    </div>
+  </div>
+  <div class="row">
+    <div class ="small-5 small-centered columns">
+      <%= f.label "Confirm Password", class: "label"%><br/>
+      <%= f.password_field :confirm%><br/>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-2 small-centered columns">
+      <%= f.submit "Update", class: "button"%>
+    </div>
+  </div>
 <%end%>
