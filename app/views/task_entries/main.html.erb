@@ -1,0 +1,30 @@
+<div class="small-2 large-3 large-centered small-centered columns">
+  <h1>Task Entry Timer</h1>
+</div>
+<%=link_to("New Task Entry", {:controller => :task_entries, :action => :new}, :class=>"button")%>
+<div class="row"><div class="small-12 large-12 columns panel-top"></div></div>
+<% @task.each do |task| %>
+  <div class="row panel-side">
+    <div class ="small-6 large-6 columns">
+      <h3><%=link_to  task.task_name, {:controller => :tasks, :action => 'show', :id => task.id},:class=>"btn-link"%>
+      <%=link_to "("+task.project.project_name+")",{:controller => :projects, :action=>'show',:id=>task.project.id},:class=>"btn-link"%></h3>
+    </div>
+  </div>
+    <%task.task_entries.each do |te| %>
+      <div class="row  align-middle entry">
+        <div class="small-3 large-3 columns"><p></p></div>
+        <div class="small-3 large-3 columns">
+          <p><%=te.note%></p>
+        </div>
+        <div class="small-3 large-3 columns">
+           <%=Time.at(te.duration).utc.strftime("%H:%M:%S") if te.duration  %>
+        </div>
+        <div class="small-3 large-3 columns">
+          <button type="button" te_id=<%=te.id%> class="button small <%=te.start_time.nil? ? (" start-timer\"\>Start".html_safe):(" stop-timer\"\>Stop".html_safe)%></button>
+        </div>
+      </div>
+      <%end%>
+      <div class="row"><div class="small-12 large-12 columns panel-bottom"></div></div>
+  <% end %>
+
+

@@ -10,7 +10,7 @@
     <th>Updated At</th>
   </tr>
   <tr>
-    <td><%=@te.id%><td>
+    <td><%=@te.id%></td>
     <td><%=link_to @te.task.task_name,{:controller => :tasks, :action=>'show',:id=>@te.task.id},:class=>"btn-link"%></td>
     <td><%=@te.duration%></td>
     <td><%=@te.note%></td>

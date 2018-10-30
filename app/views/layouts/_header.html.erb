@@ -1,7 +1,11 @@
 <nav class="top-bar" data-topbar role="navigation">
   <ul class="title-area">
     <li class="name">
-      <h1><a href=<%=url_for(action:'new',controller:'sessions')%>>Log In</a></h1>
+      <%if current_user.nil?%>
+        <h1><a href=<%=url_for(action:'new',controller:'sessions')%>>Log In</a></h1>
+      <%else%>
+        <h1><a href=<%=url_for(action:'main',controller:'task_entries')%>>Home</a></h1>
+      <%end%>
     </li>
      <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
     <li class="toggle-topbar menu-icon"><a href="#"><span></span></a></li>
@@ -14,7 +18,7 @@
       <li class="active"><a href=<%=customers_url%>>Customers</a></li>
       <li class="active"><a href=<%=projects_url%>>Projects</a></li>
       <li class="active"><a href=<%=tasks_url%>>Tasks</a></li>
-      <li class="active"><a href=<%=task_entries_url%>>Tasks Entries</a></li>
+      <li class="active"><a href=<%=task_entries_url%>>Task Entries</a></li>
     </ul>
   </section>
 </nav>

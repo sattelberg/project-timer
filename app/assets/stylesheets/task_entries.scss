@@ -1,3 +1,32 @@
 // Place all the styles related to the task_entries controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$stop-color: #f04124;
+$start-color: #43AC6A;
+.start-timer {
+	background-color: $start-color;
+}
+.stop-timer{
+	background-color: $stop-color;
+}
+.panel-top{
+	border-bottom:solid;
+	border-color:grey;
+}
+.panel-side{
+	border-color:grey;
+	border-style:solid;
+	border-bottom:none;
+	border-top:none;
+}
+.entry{
+	border-style:solid;
+	border-color:grey;
+	border-top:none;
+	border-bottom:none;
+	background-color:LightBlue;
+}
+.panel-bottom{
+	border-top:solid;
+	border-color:grey;
+}
